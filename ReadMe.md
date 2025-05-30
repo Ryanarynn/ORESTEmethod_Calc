@@ -30,7 +30,7 @@
 1. **Clone atau unduh repositori:**
 
    ```bash
-   git clone https://github.com/username/oreste-calculator.git
+   git clone https://github.com/Ryanarynn/oreste-calculator.git
    cd oreste-calculator
    ```
 
