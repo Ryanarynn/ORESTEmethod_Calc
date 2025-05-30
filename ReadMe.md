@@ -1,43 +1,115 @@
-Kalkulator ORESTE
-Kalkulator ini adalah aplikasi berbasis web untuk Sistem Pendukung Keputusan menggunakan metode ORESTE (Organisation, Rangement et Synthèse de Données Relationnelles). Aplikasi ini memungkinkan pengguna untuk memasukkan alternatif, kriteria, skor performa, dan peringkat kriteria, lalu menghitung urutan alternatif berdasarkan metode ORESTE.
-Persyaratan
+# 🧮 ORESTE Decision Support Calculator
 
-Python 3.7 atau lebih baru
-Library: streamlit, numpy, pandas
+**ORESTE Calculator** adalah aplikasi berbasis web untuk *Sistem Pendukung Keputusan (SPK)* yang menggunakan metode **ORESTE** (Organisation, Rangement et Synthèse de Données Relationnelles). Aplikasi ini membantu pengguna dalam menentukan urutan peringkat alternatif berdasarkan nilai performa dan tingkat kepentingan kriteria.
 
-Instalasi
+---
 
-Clone atau unduh repositori ini.
-Buat virtual environment (opsional):python -m venv venv
-source venv/bin/activate  # Linux/macOS
-venv\Scripts\activate     # Windows
+## 🚀 Fitur Utama
 
+- Input jumlah dan nama **alternatif** serta **kriteria**
+- Penilaian performa alternatif (0–100) terhadap setiap kriteria
+- Penentuan peringkat kepentingan kriteria
+- Proses perhitungan dan penentuan urutan alternatif secara otomatis
+- Tampilan hasil lengkap dan interaktif
+- Fitur **unduh hasil** dalam format CSV
 
-Instal library:pip install -r app/requirements.txt
+---
 
+## 📦 Persyaratan
 
-Jalankan aplikasi:streamlit run app/main.py
+- Python **3.7** atau lebih baru
+- Library Python:
+  - `streamlit`
+  - `numpy`
+  - `pandas`
 
+---
 
+## 🛠️ Instalasi
 
-Cara Penggunaan
+1. **Clone atau unduh repositori:**
 
-Buka aplikasi di browser (biasanya http://localhost:8501).
-Masukkan jumlah alternatif dan kriteria.
-Isi nama alternatif dan kriteria.
-Masukkan skor performa (0-100) untuk setiap alternatif pada setiap kriteria.
-Tentukan peringkat kriteria (1 = paling penting).
-Klik "Hitung" untuk melihat hasil.
-Unduh hasil sebagai file CSV jika diperlukan.
+   ```bash
+   git clone https://github.com/username/oreste-calculator.git
+   cd oreste-calculator
+   ```
 
-Struktur Folder
+2. **(Opsional) Buat virtual environment:**
 
-app/main.py: Kode utama aplikasi Streamlit.
-app/requirements.txt: Daftar library yang diperlukan.
-app/assets/: Folder untuk file tambahan (opsional).
-README.md: Dokumentasi proyek.
+   ```bash
+   python -m venv venv
+   ```
 
-Kontribusi
-Silakan buat issue atau pull request untuk saran perbaikan atau fitur tambahan.
-Lisensi
-MIT License
+   Aktifkan environment:
+
+   - **Linux/macOS**:
+
+     ```bash
+     source venv/bin/activate
+     ```
+
+   - **Windows**:
+
+     ```bash
+     venv\Scripts\activate
+     ```
+
+3. **Install library yang dibutuhkan:**
+
+   ```bash
+   pip install -r app/requirements.txt
+   ```
+
+4. **Jalankan aplikasi:**
+
+   ```bash
+   streamlit run app/main.py
+   ```
+
+---
+
+## 🌐 Cara Penggunaan
+
+1. Akses aplikasi di browser Anda: [http://localhost:8501](http://localhost:8501)
+2. Masukkan jumlah **alternatif** dan **kriteria**
+3. Isi nama alternatif dan nama kriteria
+4. Masukkan skor performa (0–100) untuk setiap alternatif terhadap setiap kriteria
+5. Tentukan **peringkat kepentingan** untuk tiap kriteria (1 = paling penting)
+6. Klik tombol **"Hitung"**
+7. Lihat hasil perhitungan dan peringkat alternatif
+8. (Opsional) Unduh hasil dalam format CSV
+
+---
+
+## 📁 Struktur Folder
+
+```
+app/
+│
+├── main.py              # Kode utama aplikasi Streamlit
+├── requirements.txt     # Daftar dependensi
+├── assets/              # (Opsional) File tambahan seperti gambar/logo
+│
+README.md                # Dokumentasi proyek
+```
+
+---
+
+## 🤝 Kontribusi
+
+Kontribusi sangat terbuka! Anda dapat:
+
+- Membuat issue untuk pelaporan bug atau permintaan fitur
+- Mengajukan pull request untuk perbaikan atau penambahan fitur
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+
+---
+
+## 🧠 Tentang Metode ORESTE
+
+ORESTE adalah metode *multi-criteria decision analysis* (MCDA) yang menggunakan pendekatan peringkat ordinal dan relasional untuk mengevaluasi alternatif berdasarkan sejumlah kriteria. Cocok digunakan ketika data bersifat kualitatif dan sulit dikonversi menjadi nilai kuantitatif secara langsung.
