@@ -30,8 +30,8 @@
 1. **Clone atau unduh repositori:**
 
    ```bash
-   git clone https://github.com/Ryanarynn/oreste-calculator.git
-   cd oreste-calculator
+   git clone https://github.com/Ryanarynn/ORESTEmethod_Calc.git
+   cd ORESTEmethod_Calc
    ```
 
 2. **(Opsional) Buat virtual environment:**
