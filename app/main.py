@@ -212,9 +212,9 @@ def validate_inputs(decision_matrix, criteria_weights, alternatives, criteria):
     if decision_matrix.size > 1000:  # arbitrary limit
         errors.append("Ukuran matriks terlalu besar")
     
-    # Check weight sum
-    if not np.isclose(sum(criteria_weights), 1, rtol=1e-3):
-        errors.append("Total bobot harus sama dengan 1")
+    # MODIFIED: Check weight sum within a range
+    if not (0.999 <= sum(criteria_weights) <= 1.2):
+        errors.append("Total bobot harus di antara 0.999 dan 1.2")
     
     return errors
 
@@ -606,7 +606,7 @@ with st.sidebar:
         5. Unduh hasil dalam format CSV/PDF
 
         ### Tips Penggunaan
-        - Pastikan total bobot kriteria = 1
+        - Pastikan total bobot kriteria berada di rentang 0.999 - 1.2
         - Gunakan skor 0-100
         - Eksperimen dengan nilai R berbeda
         """)
@@ -753,7 +753,7 @@ with tab1:
     with st.container():
         st.markdown("<div class='card'>", unsafe_allow_html=True)
         st.subheader("4. Bobot Kriteria")
-        st.markdown("Atur bobot (total = 1 idealnya).")
+        st.markdown("Atur bobot (total disarankan 0.999 - 1.2).")
         criteria_weights = []
         cols = st.columns(num_criteria)
         for j in range(num_criteria):
@@ -763,10 +763,15 @@ with tab1:
                 help=f"Bobot untuk {criteria[j]} (0-1)."
             )
             criteria_weights.append(weight)
-    # Total bobot kriteria
+        
+        # MODIFIED: Total bobot kriteria
         total_weight = sum(criteria_weights)
-        weight_status = "✅ Total bobot mendekati 1, bagus!" if abs(total_weight - 1.0) <= 0.0 else "⚠️ Total bobot sebaiknya mendekati 1!"
-        color = "#00ddeb" if abs(total_weight - 1.0) <= 0.0 else "#ff4b4b"
+        if 0.999 <= total_weight <= 1.2:
+            weight_status = "✅ Total bobot berada dalam rentang yang diterima!"
+            color = "#00ddeb"
+        else:
+            weight_status = "⚠️ Total bobot di luar rentang yang disarankan!"
+            color = "#ff4b4b"
         st.markdown(f"<p style='color: {color}; text-align: center;'>{weight_status} <b>Total: {total_weight:.3f}</b></p>", unsafe_allow_html=True)
         st.markdown("</div>", unsafe_allow_html=True)
 
